@@ -1,0 +1,12 @@
+// app/GameWrapper.tsx
+'use client'   // ← this is super important!
+
+import dynamic from 'next/dynamic'
+
+const Game = dynamic(() => import('../components/Game'), { 
+  ssr: false   // now it's allowed because we're in Client land
+})
+
+export default function GameWrapper() {
+  return <Game />
+}
